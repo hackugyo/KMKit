@@ -1,0 +1,20 @@
+PODS:
+  - KMKit (0.0.1):
+    - KMKit/All
+  - KMKit/All (0.0.1):
+    - KMKit/Foundation
+    - KMKit/UIKit
+  - KMKit/Foundation (0.0.1)
+  - KMKit/UIKit (0.0.1)
+
+DEPENDENCIES:
+  - KMKit (from `..`)
+
+EXTERNAL SOURCES:
+  KMKit:
+    :path: ..
+
+SPEC CHECKSUMS:
+  KMKit: 1f368203dd56d1770a13265dbd8f345373ade9f3
+
+COCOAPODS: 0.29.0
