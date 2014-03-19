@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NSData+KMKit.h"
+#import "NSString+KMKit.h"
 
 @interface ViewController ()
 
@@ -29,6 +30,7 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self executeNSData];
+        [self executeNSString];
     });
 }
 
@@ -54,6 +56,14 @@
     NSString *decodeText = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
     NSLog(@"decryptedData >>> %@", decryptedData);
     NSLog(@"decodeText >>> %@", decodeText);
+}
+
+- (void)executeNSString
+{
+    NSString *text = @"ハローワールド";
+    NSString *encodedText = [text km_encodeURIComponent];
+    NSLog(@"URI encode >>> %@", encodedText);
+    NSLog(@"URI decode >>> %@", [encodedText km_decodeURIComponent]);
 }
 
 @end
