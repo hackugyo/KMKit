@@ -64,6 +64,12 @@
     NSString *encodedText = [text km_encodeURIComponent];
     NSLog(@"URI encode >>> %@", encodedText);
     NSLog(@"URI decode >>> %@", [encodedText km_decodeURIComponent]);
+    text = @"";
+    NSLog(@"[%@] is present? : %@", text, @([text km_isPresent]));
+    text = @" This is a pen.";
+    NSLog(@"[%@] is present? : %@", text, @([text km_isPresent]));
+    text = @"　 ";
+    NSLog(@"[%@] is present? : %@", text, @([text km_isPresent]));
 }
 
 @end

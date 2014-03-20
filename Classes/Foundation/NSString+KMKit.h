@@ -14,4 +14,6 @@
 - (NSString *)km_encodeURIComponent;
 - (NSString *)km_decodeURIComponent;
 
+- (BOOL)km_isPresent;
+
 @end

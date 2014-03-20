@@ -28,4 +28,15 @@
                                                                                                  kCFStringEncodingUTF8);
 }
 
+- (BOOL)km_isPresent
+{
+    static NSString *pattern = @"\\S+?";
+    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:pattern
+                                                                            options:NSRegularExpressionAnchorsMatchLines
+                                                                              error:nil];
+    NSTextCheckingResult *match = [regexp firstMatchInString:self options:0
+                                                       range:NSMakeRange(0, self.length)];
+    return match != nil;
+}
+
 @end
