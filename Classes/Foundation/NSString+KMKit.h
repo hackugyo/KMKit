@@ -15,5 +15,6 @@
 - (NSString *)km_decodeURIComponent;
 
 - (BOOL)km_isPresent;
+- (BOOL)km_isNumeric;
 
 @end

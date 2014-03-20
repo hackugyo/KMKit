@@ -39,4 +39,15 @@
     return match != nil;
 }
 
+- (BOOL)km_isNumeric
+{
+    static NSString *pattern = @"^\\d+?$";
+    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:pattern
+                                                                            options:NSRegularExpressionAnchorsMatchLines
+                                                                              error:nil];
+    NSTextCheckingResult *match = [regexp firstMatchInString:self options:0
+                                                       range:NSMakeRange(0, self.length)];
+    return match != nil;
+}
+
 @end

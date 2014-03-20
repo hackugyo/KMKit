@@ -60,16 +60,31 @@
 
 - (void)executeNSString
 {
+    NSLog(@"======== encode & decode URIComponent ========");
     NSString *text = @"ハローワールド";
     NSString *encodedText = [text km_encodeURIComponent];
     NSLog(@"URI encode >>> %@", encodedText);
     NSLog(@"URI decode >>> %@", [encodedText km_decodeURIComponent]);
+
+    NSLog(@"======== isPresent ========");
     text = @"";
     NSLog(@"[%@] is present? : %@", text, @([text km_isPresent]));
     text = @" This is a pen.";
     NSLog(@"[%@] is present? : %@", text, @([text km_isPresent]));
     text = @"　 ";
     NSLog(@"[%@] is present? : %@", text, @([text km_isPresent]));
+
+    NSLog(@"======== isNumeric ========");
+    text = @"";
+    NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
+    text = @"abe";
+    NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
+    text = @"123";
+    NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
+    text = @"1a23";
+    NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
+    text = @"123 ";
+    NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
 }
 
 @end
