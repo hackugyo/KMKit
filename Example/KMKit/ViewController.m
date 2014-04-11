@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "NSData+KMKit.h"
-#import "NSString+KMKit.h"
+#import <NSData+KMKit.h>
+#import <NSString+KMKit.h>
+#import <NSArray+KMKit.h>
 
 @interface ViewController ()
 
@@ -31,6 +32,7 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self executeNSData];
         [self executeNSString];
+        [self executeNSArray];
     });
 }
 
@@ -85,6 +87,17 @@
     NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
     text = @"123 ";
     NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
+}
+
+- (void)executeNSArray
+{
+    NSArray *array = @[@"apple", @"banana", @"grape"];
+    NSLog(@"%@", [array km_join:@" & "]);
+    NSArray *maps = [array km_mapUsingBlock:^id(id obj) {
+        NSString *element = obj;
+        return @([element length]);
+    }];
+    NSLog(@"%@", maps);
 }
 
 @end
