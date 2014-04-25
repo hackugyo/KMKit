@@ -87,6 +87,11 @@
     NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
     text = @"123 ";
     NSLog(@"[%@] is numeric? : %@", text, @([text km_isNumeric]));
+
+    text = @"foo=123&bar=テスト";
+    NSLog(@"parse query string >>> %@", [text km_parsedQueryString]);
+    text = @" foo　テスト   bar buz   ";
+    NSLog(@"collapse stripped whitespace >>> [%@]", [text km_stringByCollapsingStrippedWhitespacing]);
 }
 
 - (void)executeNSArray

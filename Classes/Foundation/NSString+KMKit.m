@@ -50,4 +50,28 @@
     return match != nil;
 }
 
+- (NSDictionary *)km_parsedQueryString
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSArray *pairs = [self componentsSeparatedByString:@"&"];
+
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        if ([elements count] == 2) {
+            NSString *key = [elements[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *val = [elements[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [dict setObject:val forKey:key];
+        }
+    }
+    return dict;
+}
+
+- (NSString *)km_stringByCollapsingStrippedWhitespacing
+{
+    NSString *string = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    return [components componentsJoinedByString:@" "];
+}
+
 @end

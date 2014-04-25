@@ -17,4 +17,10 @@
 - (BOOL)km_isPresent;
 - (BOOL)km_isNumeric;
 
+- (NSDictionary *)km_parsedQueryString;
+/**
+ http://nshipster.com/nscharacterset/
+ */
+- (NSString *)km_stringByCollapsingStrippedWhitespacing;
+
 @end
