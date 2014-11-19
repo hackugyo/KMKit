@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name         = "KMKit"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A library for iOS development include extensions of Foundation and UIKit"
   s.homepage     = "https://github.com/matsuda/KMKit"
   s.license      = 'MIT'
-  s.author             = { "matsuda" => "3matsuda@gmail.com" }
+  s.author       = { "matsuda" => "kosukematsuda@gmail.com" }
   s.platform     = :ios
   s.ios.deployment_target = '6.0'
-  s.source       = { :git => "https://github.com/matsuda/KMKit.git" }
+  s.source       = { :git => "https://github.com/matsuda/KMKit.git", :tag => s.version.to_s }
   # s.source_files  = 'Classes/**/*.{h,m}'
   s.requires_arc = true
 
