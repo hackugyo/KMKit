@@ -48,6 +48,7 @@
 
 - (void)unarchiveWithData:(NSData *)data
 {
+    if (!data) return;
     id cookies = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     NSEnumerator *enumerator = [cookies objectEnumerator];
     for (NSHTTPCookie *cookie in enumerator) {
